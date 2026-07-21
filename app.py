@@ -12,7 +12,7 @@ from reportlab.lib import colors
 # 1. Configuración inicial de la página
 st.set_page_config(page_title="Dashboard VIP", layout="wide")
 
-st.title("🏆 Dashboard de Acreditaciones VIP")
+st.title("Dashboard de Obsequios VIP")
 st.markdown("Sube tu archivo de datos para procesar, visualizar el reporte y descargar el informe en PDF.")
 
 # 2. Carga dinámica de archivos
