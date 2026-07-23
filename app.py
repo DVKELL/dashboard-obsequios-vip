@@ -23,9 +23,15 @@ if archivo is not None:
     df = pd.read_csv(archivo)
 
     # Identificación y limpieza de duplicados
+    duplicados = df['Usuario'].duplicated()
     cantidad_usuarios_duplicados = df['Usuario'].duplicated().sum()
+    nombres_usuarios_duplicados = df[duplicados]['Usuario']
+
     if cantidad_usuarios_duplicados > 0:
         st.warning(f"Se encontraron y omitieron {cantidad_usuarios_duplicados} usuarios duplicados.")
+        with st.expander("Ver usuarios duplicados omitidos"):
+            for u in nombres_usuarios_duplicados.tolist():
+                st.write(f"- usuario: {u}")
     df = df.drop_duplicates(subset='Usuario')
 
     # Total Obsequios Acreditados
